@@ -1,0 +1,46 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Apus Project</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+  <script type=text/javascript src="../angular/angular.js"></script>
+  <script type=text/javascript src="../js/productController.js"></script>
+
+</head>
+<body ng-app="apusProject">
+  <div ng-controller="productController">
+    <div class="container">
+      <h3 class="text-center mt-5">Products</h3>
+      <div class="row">
+        <div class="col col-md-6 offset-md-2 mx-auto">
+          <!--<input class="text-center" type="text" ng-model="search"/>-->
+          <table class="table-resposive table-striped text-center  mx-auto my-5">
+            <thead>
+              <tr>
+                <th class="text-center">Id</th>
+                <th class="text-center">Category</th>
+                <th class="text-center">Title</th>
+                <th class="text-center">Description</th>
+                <th class="text-center">Price</th>
+                <th class="text-center">Quantity</th>
+              </tr>
+            </thead>
+            <tbody ng-init="listProducts()">
+              <tr ng-repeat="product in products">
+                <td>{{product.id}}</td>
+                <td>{{product.category_id}}</td>
+                <td>{{product.title}}</td>
+                <td>{{product.description}}</td>
+                <td>{{product.price}}</td>
+                <td>{{product.quantity}}</td>
+              </tr>
+            </tbody>
+          </table>
+          <a class="btn btn-outline-success mx-auto my-2" href="newProduct.html">New Product</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

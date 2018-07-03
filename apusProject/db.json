@@ -1,0 +1,28 @@
+{
+  "products": [
+    {
+      "id": "00",
+      "category_id": "01",
+      "title": "test",
+      "description": "my test",
+      "price": "10.00",
+      "quantity": "3"
+    },
+    {
+      "id": "01",
+      "category_id": "01",
+      "title": "test2",
+      "description": "my second test",
+      "price": "11.00",
+      "quantity": "2"
+    }
+  ],
+
+  "category": [
+
+  ],
+
+  "stock": [
+
+  ]
+}
