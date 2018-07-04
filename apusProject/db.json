@@ -7,20 +7,38 @@
       "description": "Doll",
       "price": "75.00",
       "quantity": "100"
+    },
+    {
+      "id": 2,
+      "category_id": "1",
+      "title": "Teddy Bear",
+      "description": "Cute",
+      "price": "25.99",
+      "quantity": "45"
     }
   ],
   "category": [
     {
-      "id": 2,
+      "id": 1,
       "name": "Toys"
+    },
+    {
+      "id": 2,
+      "name": "Books"
     }
   ],
   "stock": [
     {
       "id": 1,
-      "product_id": "Test",
-      "quantity": "600",
-      "date_time": "11/08/1998"
+      "product_id": "1",
+      "quantity": "100",
+      "date_time": "11/04/2018"
+    },
+    {
+      "id": 2,
+      "product_id": "2",
+      "quantity": "34",
+      "date_time": "01/03/1990"
     }
   ]
 }

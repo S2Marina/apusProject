@@ -4,6 +4,8 @@ apusProject.controller('stockController', ['$scope', '$window', '$http', functio
 
   $scope.stocks = []
   $scope.stock={}
+  $scope.products = []
+  $scope.product={}
 
   $scope.listStocks = function(){
     $http.get('http://localhost:3000/stock').then(function(data){
@@ -12,10 +14,11 @@ apusProject.controller('stockController', ['$scope', '$window', '$http', functio
   };
 
   $scope.addStock = function(){
+    var newId = 0;
     $http.get('http://localhost:3000/stock').then(function(data){
         $scope.stocks = data.data;
+        newId = data.length + 1;
     });
-    var newId = $scope.stocks.length + 1;
     $http.post('http://localhost:3000/stock',{id:newId,
       product_id:$scope.newStock.product_id,
       quantity: $scope.newStock.quantity,
@@ -28,6 +31,12 @@ apusProject.controller('stockController', ['$scope', '$window', '$http', functio
     $http.delete('http://localhost:3000/stock/' + id)
     $window.location.href = '/home/marina/agora vai/html/stock.html';
   }
+
+  $scope.listProducts = function(){
+    $http.get('http://localhost:3000/products').then(function(data){
+      $scope.products = data.data;
+    });
+  };
 
 }
 ]);

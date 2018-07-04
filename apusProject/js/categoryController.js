@@ -6,10 +6,12 @@ apusProject.controller('categoryController', ['$scope', '$window', '$http', func
   $scope.category={}
 
   $scope.addCategory = function(){
+    var newId = 0;
     $http.get('http://localhost:3000/category').then(function(data){
       $scope.categories = data.data;
+      newId = data.length + 1;
     });
-    var newId = $scope.categories.length + 1;
+    
     $http.post('http://localhost:3000/category',{id:newId,
       name: $scope.newCategory.name
     })

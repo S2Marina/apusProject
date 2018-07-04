@@ -16,7 +16,11 @@
       <div class="row">
         <div class="col col-md-3 offset-md-4 mx-auto">
           <form class="form-group mt-2 text-center" ng-submit="addStock()">
-            <input class="mt-2" type="text" ng-model="newStock.product_id" placeholder="Enter the name of the stock">
+            <div ng-init="listProducts()">
+              <select class="custom-select my-2" ng-model="newStock.product_id">
+                <option ng-repeat="product in products" value="{{product.id}}">{{product.title}}</option>
+              </select>
+            </div>
             <input class="mt-2" type="text" ng-model="newStock.quantity" placeholder="Enter the quantity of the stock">
             <input class="mt-2" type="text" ng-model="newStock.date_time" placeholder="Enter the date of the stock">
             <input class="btn btn-outline-success mt-2 mx-auto" type="submit" value="Save Stock">

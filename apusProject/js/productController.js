@@ -2,14 +2,17 @@ var apusProject = angular.module('apusProject', []);
 
 apusProject.controller('productController', ['$scope', '$window', '$http', function($scope,$window, $http){
 
-  $scope.products = []//isso é uma lista
-  $scope.product={}//isso é um produto
+  $scope.products = []
+  $scope.product={}
+  $scope.categories = []
+  $scope.category={}
 
   $scope.addProduct = function(){
+    var newId = 0;
     $http.get('http://localhost:3000/products').then(function(data){
         $scope.products = data.data;
+        newId = data.length + 1;
     });
-    var newId = $scope.products.length + 1;
     $http.post('http://localhost:3000/products',{id:newId,
       category_id:$scope.newProduct.category_id,
       title:$scope.newProduct.title,
@@ -22,7 +25,7 @@ apusProject.controller('productController', ['$scope', '$window', '$http', funct
 
 
   $scope.listProducts = function(){
-    $http.get('http://localhost:3000/products').then(function(data){
+    $http.get('http://localhost:3000/products/').then(function(data){
       $scope.products = data.data;
     });
   };
