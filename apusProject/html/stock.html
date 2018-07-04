@@ -32,7 +32,8 @@
                 <td>{{stock.product_id}}</td>
                 <td>{{stock.quantity}}</td>
                 <td>{{stock.date_time}}</td>
-              <th><a class="btn btn-small btn-outline-danger rounded-circle mx-auto my-2" ng-click="deleteStock(stock.id)">X</a></th>
+                <td><a class="btn btn-small btn-warning rounded-circle mx-auto my-2" href="updateStock.html?id={{stock.id}}">Update</a></td>
+                <td><a class="btn btn-small btn-danger rounded-circle mx-auto my-2" ng-click="deleteStock(stock.id)">x</a></td>
               </tr>
             </tbody>
           </table>

@@ -11,7 +11,7 @@ apusProject.controller('categoryController', ['$scope', '$window', '$http', func
       $scope.categories = data.data;
       newId = data.length + 1;
     });
-    
+
     $http.post('http://localhost:3000/category',{id:newId,
       name: $scope.newCategory.name
     })
@@ -29,6 +29,22 @@ apusProject.controller('categoryController', ['$scope', '$window', '$http', func
     $http.delete('http://localhost:3000/category/' + id)
     $window.location.href = '/home/marina/agora vai/html/category.html';
   }
+
+  $scope.getCategory = function(){
+    var id = $window.location.search.replace("?id=","")
+    $http.get('http://localhost:3000/category/' + id).then(function(data){
+      $scope.category = data.data;
+    });
+  };
+
+  $scope.updateCategory = function(id){
+    id = id + 1;
+    $http.put('http://localhost:3000/category/' + id,{
+      name: $scope.category.name
+    })
+
+    $window.location.href = '/home/marina/agora vai/html/category.html';
+  };
 
 }
 ]);

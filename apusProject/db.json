@@ -2,19 +2,19 @@
   "products": [
     {
       "id": 1,
-      "category_id": "2",
+      "category_id": "1",
       "title": "Barbie",
       "description": "Doll",
       "price": "75.00",
       "quantity": "100"
     },
     {
-      "id": 2,
       "category_id": "1",
       "title": "Teddy Bear",
       "description": "Cute",
       "price": "25.99",
-      "quantity": "45"
+      "quantity": "35",
+      "id": 2
     }
   ],
   "category": [

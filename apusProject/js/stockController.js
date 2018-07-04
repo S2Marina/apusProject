@@ -38,5 +38,24 @@ apusProject.controller('stockController', ['$scope', '$window', '$http', functio
     });
   };
 
+
+  $scope.getStock = function(){
+    var id = $window.location.search.replace("?id=","")
+    $http.get('http://localhost:3000/stock/' + id).then(function(data){
+      $scope.stock = data.data;
+    });
+  };
+
+  $scope.updateStock = function(id){
+    id = id + 1;
+    $http.put('http://localhost:3000/products/' + id,{
+      product_id:$scope.stock.product_id,
+      quantity: $scope.stock.quantity,
+      date_time: $scope.stock.date_time
+    })
+
+    $window.location.href = '/home/marina/agora vai/html/stock.html';
+  };
+
 }
 ]);

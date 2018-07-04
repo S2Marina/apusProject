@@ -28,7 +28,8 @@
               <tr ng-repeat="category in categories">
                 <td>{{category.id}}</td>
                 <td>{{category.name}}</td>
-                <td><a class="btn btn-small btn-outline-danger rounded-circle mx-auto my-2" ng-click="deleteCategory(category.id)">X</a></td>
+                  <td><a class="btn btn-small btn-warning rounded-circle mx-auto my-2" href="updateCategory.html?id={{category.id}}">Update</a></td>
+                <td><a class="btn btn-small btn-danger rounded-circle mx-auto my-2" ng-click="deleteCategory(category.id)">X</a></td>
               </tr>
             </tbody>
           </table>

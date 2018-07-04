@@ -25,6 +25,8 @@
                 <th>Description</th>
                 <th>Price</th>
                 <th>Quantity</th>
+                <th></th>
+                <th></th>
               </tr>
             </thead>
 
@@ -36,7 +38,8 @@
                 <td>{{product.description}}</td>
                 <td>{{product.price}}</td>
                 <td>{{product.quantity}}</td>
-                <td><a class="btn btn-small btn-outline-danger rounded-circle mx-auto my-2" ng-click="deleteProduct(product.id)">x</a></td>
+                <td><a class="btn btn-small btn-warning rounded-circle mx-auto my-2" href="updateProduct.html?id={{product.id}}">Update</a></td>
+                <td><a class="btn btn-small btn-danger rounded-circle mx-auto my-2" ng-click="deleteProduct(product.id)">x</a></td>
               </tr>
             </tbody>
           </table>
