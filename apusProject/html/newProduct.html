@@ -2,10 +2,11 @@
 <head>
   <meta charset="utf-8">
   <title>Apus Project</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+  <script src="../jquery/dist/jquery.min.js"></script>
+  <script src="../bootstrap/dist/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="../bootstrap/dist/css/bootstrap.min.css">
   <script type=text/javascript src="../angular/angular.js"></script>
-  <script type=text/javascript src="../js/app.js"></script>
+  <script type=text/javascript src="../js/productController.js"></script>
 
 </head>
 <body ng-app="apusProject">
@@ -19,6 +20,11 @@
             <input class="mt-2" type="text" ng-model="newProduct.description" placeholder="Enter the description of the product">
             <input class="mt-2" type="text" ng-model="newProduct.price" placeholder="Enter the price of the product">
             <input class="mt-2" type="text" ng-model="newProduct.quantity" placeholder="Enter the quantity of the product">
+            <div  ng-init="listCategories()">
+              <select class="custom-select my-2" ng-model="newProduct.category_id">
+                <option ng-repeat="category in categories" value="{{category.id}}">{{category.name}}</option>
+              </select>
+            </div>
             <input class="btn btn-outline-success mt-2 mx-auto" type="submit" value="Save Product">
           </form>
         </div>

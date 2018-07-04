@@ -1,28 +1,26 @@
 {
   "products": [
     {
-      "id": "00",
-      "category_id": "01",
-      "title": "test",
-      "description": "my test",
-      "price": "10.00",
-      "quantity": "3"
-    },
-    {
-      "id": "01",
-      "category_id": "01",
-      "title": "test2",
-      "description": "my second test",
-      "price": "11.00",
-      "quantity": "2"
+      "id": 1,
+      "category_id": "2",
+      "title": "Barbie",
+      "description": "Doll",
+      "price": "75.00",
+      "quantity": "100"
     }
   ],
-
   "category": [
-
+    {
+      "id": 2,
+      "name": "Toys"
+    }
   ],
-
   "stock": [
-
+    {
+      "id": 1,
+      "product_id": "Test",
+      "quantity": "600",
+      "date_time": "11/08/1998"
+    }
   ]
 }

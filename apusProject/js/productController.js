@@ -1,29 +1,48 @@
 var apusProject = angular.module('apusProject', []);
 
-apusProject.controller('productController', ['$scope', '$location', '$http', function($scope,$location, $http){
+apusProject.controller('productController', ['$scope', '$window', '$http', function($scope,$window, $http){
 
   $scope.products = []//isso é uma lista
   $scope.product={}//isso é um produto
 
-
-  var newId = $scope.products.lengh + 1;
-
   $scope.addProduct = function(){
+    $http.get('http://localhost:3000/products').then(function(data){
+        $scope.products = data.data;
+    });
+    var newId = $scope.products.length + 1;
     $http.post('http://localhost:3000/products',{id:newId,
-      category_id:'0',
+      category_id:$scope.newProduct.category_id,
       title:$scope.newProduct.title,
       description: $scope.newProduct.description,
       price:$scope.newProduct.price,
       quantity:$scope.newProduct.quantity
     })
+    $window.location.href = '/home/marina/agora vai/html/product.html';
   };
 
 
   $scope.listProducts = function(){
     $http.get('http://localhost:3000/products').then(function(data){
-        $scope.products = data.data;
+      $scope.products = data.data;
     });
   };
 
+  $scope.listCategories = function(){
+    $http.get('http://localhost:3000/category').then(function(data){
+      $scope.categories = data.data;
+    });
+  };
+
+  $scope.deleteProduct = function(id){
+    $http.delete('http://localhost:3000/products/' + id)
+    $window.location.href = '/home/marina/agora vai/html/product.html';
+  }
+
+  $scope.getCategory = function(id){
+    $http.get('http://localhost:3000/category/' + id).then(function(data){
+      $scope.categories = data.data;
+      $scope.category = $scope.categories.getElementById(id);
+    });
+  }
 }
 ]);
